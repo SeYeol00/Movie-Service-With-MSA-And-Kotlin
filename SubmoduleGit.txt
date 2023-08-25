@@ -1,0 +1,62 @@
+
+Git 하위 모듈로 작업할 때 각 하위 모듈은 자체 커밋 기록을 포함하는 별도의 Git 저장소로 존재합니다. 하위 모듈 내에서 커밋이 작동하는 방식은 다음과 같습니다.
+
+
+하위 모듈에 변경 사항 커밋:
+파일 수정, 새 파일 추가, 파일 삭제 등 하위 모듈 디렉터리 내에서 변경 작업을 수행하면 독립 실행형 Git 저장소에서와 마찬가지로 하위 모듈 저장소 내에서 작업하게 됩니다.
+
+cd <submodule_directory>
+# Make changes to files
+git add .
+git commit -m "Commit message"
+git push origin <branch>
+변경 사항은 하위 모듈의 저장소 내에서 커밋되고 푸시되며, 그에 따라 하위 모듈의 커밋 기록이 업데이트됩니다.
+
+
+메인 저장소의 하위 모듈 참조 업데이트:
+하위 모듈의 저장소에서 변경 사항을 커밋한 후에는 기본 저장소에서 하위 모듈의 커밋에 대한 참조를 업데이트해야 합니다. 이는 기본 저장소가 사용 중인 하위 모듈의 커밋을 추적하기 때문에 중요합니다.
+
+
+기본 저장소에서:
+
+cd <main_repository_directory>
+git add <submodule_directory>
+git commit -m "Update submodule to latest commit"
+git push origin <branch>
+기본 저장소의 이 커밋은 하위 모듈의 최신 커밋에 대한 새로운 참조를 반영합니다.
+
+
+다른 클론의 하위 모듈 변경 사항 가져오기:
+다른 팀 구성원이 하위 모듈이 있는 기본 저장소를 복제할 때 다음을 실행하여 하위 모듈 내용을 최신 커밋으로 업데이트할 수 있습니다.
+
+
+bash
+Copy code
+git submodule update --remote
+그러면 하위 모듈 저장소에서 최신 변경 사항을 가져오고 기본 저장소의 로컬 복제본에서 적절한 커밋을 체크아웃합니다.
+
+
+각 하위 모듈은 독립적인 Git 저장소로 작동하며 하위 모듈 내의 커밋은 기본 저장소의 커밋 기록에 직접적인 영향을 미치지 않습니다. 대신, 기본 저장소는 하위 모듈 저장소의 특정 커밋 참조(커밋 해시)를 추적합니다.
+
+
+하위 모듈을 사용하려면 모든 사람이 올바른 버전의 하위 모듈을 사용하고 하위 모듈 업데이트가 기본 저장소의 기록에 제대로 통합되었는지 확인하기 위해 팀 구성원 간의 조정이 필요합니다.
+다양한 리포지토리의 변경 사항을 처리할 때 Git 하위 모듈 워크플로를 이해하고 효과적으로 커뮤니케이션하는 것이 중요합니다.
+
+더 편하게 서브 모듈 최신 커밋 가져오기
+위에서는 일일히 서브 모듈 디렉토리에 들어와서 pull 명령을 통해서 서브 모듈의 최신 버전을 가져왔다. 하지만 더 간단한 명령어가 존재한다. 일단 c 라는 파일을 생성하고 서브 모듈에 커밋하고 푸시하자. 그리고 슈퍼 프로젝트 디렉토리로 이동한 다음 아래 명령을 입력해보자.
+
+$ git submodule update --remote
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 2 (delta 0), reused 2 (delta 0), pack-reused 0
+Unpacking objects: 100% (2/2), 208 bytes | 104.00 KiB/s, done.
+From https://github.com/devHudi/sub-repository
+   5eade94..7ced843  main       -> origin/main
+Submodule path 'lib': checked out '7ced843b8f637a5bf9096edd56da92a97b99f907'
+더 간단하게 서브 모듈의 최신 커밋을 가져올 수 있다.
+
+서브모듈을 포함한 프로젝트 클론하기
+서브모듈을 포함하는 프로젝트를 일반적으로 클론하면, 서브모듈 디렉토리는 빈 디렉토리가 된다. --recurse-submodules 옵션을 사용하여 클론해야지 서브모듈을 자동으로 함께 가져온다.
+
+$ git clone --recurse-submodules https://github.com/devHudi/super-repository.git
