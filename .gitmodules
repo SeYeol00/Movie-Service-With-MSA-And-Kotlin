@@ -1,0 +1,3 @@
+[submodule "movies-info-service"]
+	path = movies-info-service
+	url = /movies-info-service/
