@@ -1,3 +1,6 @@
 [submodule "movies-info-service"]
 	path = movies-info-service
-	url = /movies-info-service/
+	url = https://github.com/SeYeol00/movies-info-service.git
+[submodule "movies-review-service"]
+	path = movies-review-service
+	url = https://github.com/SeYeol00/movies-review-service.git
