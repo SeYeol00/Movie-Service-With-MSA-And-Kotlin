@@ -4,3 +4,6 @@
 [submodule "movies-review-service"]
 	path = movies-review-service
 	url = https://github.com/SeYeol00/movies-review-service.git
+[submodule "movies-service"]
+    path = movies-service
+    url = https://github.com/SeYeol00/movies-service.git
