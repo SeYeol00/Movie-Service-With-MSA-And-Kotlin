@@ -18,6 +18,12 @@
 ### Scope
 - 이번 학기 내의 목표는 DB부터 중계 서버까지 설계하는 것으로 생각한다. 테스트의 경우 단위테스트를 통해 클래스 로직을 확인하고 통합테스트로 전체 시퀀스를 테스트한 다음 실제 서버를 띄워 postman으로 json 파일 객체를 직접 검증할 예정이다. 추후 클라이언트 언어와 라이브러리, 프레임워크를 공부하여 서비스를 추가할 예정이다.
 
+
+## 4.	Project System Overview and Characteristics
+
+### Use Case Diagram
+<img width="305" alt="image" src="https://github.com/SeYeol00/Movie-Service-With-MSA-And-Kotlin/assets/79959576/6108043b-8150-4dd5-9d2c-e0d9f72e0b5c">
+
 ### Architecture Diagram
 ![MSA draw (1)](https://github.com/SeYeol00/Movie-Service-With-MSA-And-Kotlin/assets/79959576/aa790645-badf-4f32-882f-23d025630f66)
 
