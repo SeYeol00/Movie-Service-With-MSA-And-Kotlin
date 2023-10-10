@@ -22,7 +22,9 @@
 ## 4.	Project System Overview and Characteristics
 
 ### Use Case Diagram
+<div align = "center">
 <img width="305" alt="image" src="https://github.com/SeYeol00/Movie-Service-With-MSA-And-Kotlin/assets/79959576/6108043b-8150-4dd5-9d2c-e0d9f72e0b5c">
+</div>
 
 ### Architecture Diagram
 ![MSA draw (1)](https://github.com/SeYeol00/Movie-Service-With-MSA-And-Kotlin/assets/79959576/aa790645-badf-4f32-882f-23d025630f66)
